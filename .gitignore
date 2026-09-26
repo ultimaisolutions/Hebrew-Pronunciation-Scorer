@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+
+# Models
+phonikud-1.0.int8.onnx
