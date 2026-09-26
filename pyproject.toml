@@ -1,0 +1,38 @@
+[project]
+name = "hebrew-pronunciation-scorer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Ofek Loya", email = "ofekloya@ultimaisolutions.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "accelerate>=1.15.0",
+    "datasets>=5.0.1",
+    "jiwer>=4.0.0",
+    "librosa>=1.0.0",
+    "pandas>=3.0.6",
+    "soundfile>=0.14.0",
+    "torch>=2.14.0",
+    "torchaudio>=2.11.0",
+    "triton-xpu>=3.8.0,<3.9.dev0",
+    "transformers>=5.17.0",
+]
+
+[project.scripts]
+hebrew-pronunciation-scorer = "hebrew_pronunciation_scorer:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+torch = { index = "pytorch-xpu" }
+torchaudio = { index = "pytorch-xpu" }
+triton-xpu = { index = "pytorch-xpu" }
+
+[[tool.uv.index]]
+name = "pytorch-xpu"
+url = "https://download.pytorch.org/whl/xpu"
+explicit = true
